@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using NJsonSchema;
+using NSwag.AspNetCore;
+using Order.API.Controllers.Items;
+using Order.API.Controllers.Items.Interfaces;
+using Order.API.Controllers.Users;
+using Order.API.Controllers.Users.Interfaces;
+using Order.Services.ItemServices;
+using Order.Services.ItemServices.Interfaces;
+using Order.Services.UserServices;
+using Order.Services.UserServices.Interfaces;
+using Order.API.Helpers;
 
 namespace Order
 {
@@ -26,6 +31,20 @@ namespace Order
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IUserMapper, UserMapper>();
+            services.AddSingleton<IItemService, ItemService>();
+            services.AddSingleton<IItemMapper, ItemMapper>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("admin"));
+            });
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,12 +54,15 @@ namespace Order
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
 
-            app.UseHttpsRedirection();
+            app.UseSwaggerUi3WithApiExplorer(settings =>
+            {
+                settings.GeneratorSettings.DefaultPropertyNameHandling =
+                    PropertyNameHandling.CamelCase;
+            });
+
+            app.UseAuthentication();
+
             app.UseMvc();
         }
     }

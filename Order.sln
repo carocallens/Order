@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API", "Order\Order.API.csproj", "{8FFF6FDE-4568-4C08-920F-9116704F7993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.API", "Order\Order.API.csproj", "{8FFF6FDE-4568-4C08-920F-9116704F7993}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Domain", "Domain\Order.Domain.csproj", "{C972EC99-4E5B-4721-9CE2-D16B3110352A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Domain", "Domain\Order.Domain.csproj", "{C972EC99-4E5B-4721-9CE2-D16B3110352A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Services", "Services\Order.Services.csproj", "{57FF5EE6-B5F0-4BEE-BCB6-44AF76B729DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Services", "Services\Order.Services.csproj", "{57FF5EE6-B5F0-4BEE-BCB6-44AF76B729DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Databases", "Order.Databases\Order.Databases.csproj", "{934AD1B5-8776-402E-B944-737CCF0B7C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Databases", "Order.Databases\Order.Databases.csproj", "{934AD1B5-8776-402E-B944-737CCF0B7C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Services.Tests", "Order.Services.Tests\Order.Services.Tests.csproj", "{28B7B9A5-B77C-4018-BE44-2C4CBAADB6A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.Services.Tests", "Order.Services.Tests\Order.Services.Tests.csproj", "{28B7B9A5-B77C-4018-BE44-2C4CBAADB6A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.API.Tests", "Order.API.Tests\Order.API.Tests.csproj", "{8B691268-BCDE-4E4B-AECA-33C85F746FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Order.API.Tests", "Order.API.Tests\Order.API.Tests.csproj", "{8B691268-BCDE-4E4B-AECA-33C85F746FE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,9 +12,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Order.Databases\Order.Databases.csproj" />
-    <ProjectReference Include="..\Services\Order.Services.csproj" />
-  </ItemGroup>
-
 </Project>
