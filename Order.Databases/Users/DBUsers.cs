@@ -13,11 +13,18 @@ namespace Order.Databases.Users
             .WithEmail("user@user.com")
             .WithPassword("Password123")
             .WithRole(Role.admin)
-            .WithStreet("Van Kerckhovenstraat")
-            .WithStreetNumber("14/201")
-            .WithPostalCode(2800)
-            .WithCity("Mechelen")
+            .WithAddress(new Address("Van Kerckhovenstraat", "14/201", 2800, "Mechelen"))
             .WithPhoneNumber("0478536637")
-            .Build()};
+            .Build(),
+
+            UserBuilder.CreateUser()
+            .WithFirstName("MM")
+            .WithLastName("DD")
+            .WithEmail("user1@user.com")
+            .WithPassword("Password123")
+            .WithAddress(new Address("Pastoriestraat", "39A", 1651, "Lot"))
+            .WithPhoneNumber("lalaa")
+            .Build()
+        };
     }
 }

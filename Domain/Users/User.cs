@@ -16,7 +16,7 @@ namespace Order.Domain.Users
 
         public User(UserBuilder userBuilder)
         {
-            ID = new Guid();
+            ID = Guid.NewGuid();
             FirstName = userBuilder.FirstName;
             LastName = userBuilder.LastName;
             Email = userBuilder.Email;

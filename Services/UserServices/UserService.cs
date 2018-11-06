@@ -31,5 +31,10 @@ namespace Order.Services.UserServices
         {
             return DBUsers.Users;
         }
+
+        public User GetCustomer(Guid customerID)
+        {
+            return DBUsers.Users.FirstOrDefault(user => user.ID == customerID);
+        }
     }
 }

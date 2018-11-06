@@ -18,10 +18,7 @@ namespace Order.Services.Tests.UserServices
                 .WithFirstName("Jean")
                 .WithLastName("Jean")
                 .WithEmail("user@user.com")
-                .WithStreet("Papenhofstraat")
-                .WithStreetNumber("30")
-                .WithPostalCode(2800)
-                .WithCity("Mechelen")
+                .WithAddress(new Address("Papenhofstraat","30", 2800, "Mechelen"))
                 .WithPhoneNumber("0478536637")
                 .Build());
             DBUsers.Users.Add(
@@ -29,10 +26,7 @@ namespace Order.Services.Tests.UserServices
                 .WithFirstName("Pierre")
                 .WithLastName("Pierre")
                 .WithEmail("user1@user.com")
-                .WithStreet("Cantersteen")
-                .WithStreetNumber("10")
-                .WithPostalCode(1000)
-                .WithCity("Brussel")
+                .WithAddress(new Address("Cantersteen", "10", 1000, "Brussel"))
                 .WithPhoneNumber("0472231802")
                 .Build());
 
@@ -46,10 +40,7 @@ namespace Order.Services.Tests.UserServices
                 .WithFirstName("NewUser")
                 .WithLastName("Pierre")
                 .WithEmail("user1@user.com")
-                .WithStreet("Kersbeeklaan")
-                .WithStreetNumber("26")
-                .WithPostalCode(1190)
-                .WithCity("Brussel")
+                .WithAddress(new Address("Kersbeeklaan", "26", 1190, "Brussel"))
                 .WithPhoneNumber("0475926895")
                 .Build();
 

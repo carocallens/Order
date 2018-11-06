@@ -12,24 +12,17 @@ namespace Order.Services.ItemServices
     {
         public void CreateItem(Item item)
         {
-            if (DBItems.Items.Any(dbItem => dbItem.Name == item.Name && dbItem.Price == item.Price))
-            {
-                DBItems.Items.FirstOrDefault(dbItem => dbItem.Name == item.Name).Amount += item.Amount;
-            }
-            else
-            {
-                DBItems.Items.Add(item);
-            }
+            DBItems.Items.Add(item.ID, item);
         }
 
         public List<Item> GetAll()
         {
-            return DBItems.Items;
+            return DBItems.Items.Values.ToList();
         }
 
-        public Item GetItem(int itemID)
+        public Item GetItem(Guid itemID)
         {
-            return DBItems.Items.FirstOrDefault(item => item.ObjectID == itemID);
+            return DBItems.Items.FirstOrDefault(item => item.Key == itemID).Value;
         }
     }
 }

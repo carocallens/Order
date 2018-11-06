@@ -15,6 +15,10 @@ using Order.Services.ItemServices.Interfaces;
 using Order.Services.UserServices;
 using Order.Services.UserServices.Interfaces;
 using Order.API.Helpers;
+using Order.Services.OrderServices.Interfaces;
+using Order.Services.OrderServices;
+using Order.API.Controllers.Orders.Interfaces;
+using Order.API.Controllers.Orders;
 
 namespace Order
 {
@@ -32,18 +36,20 @@ namespace Order
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            //services.AddAuthentication("BasicAuthentication")
+              //  .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IUserMapper, UserMapper>();
             services.AddSingleton<IItemService, ItemService>();
             services.AddSingleton<IItemMapper, ItemMapper>();
+            services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IOrderMapper, OrderMapper>();
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("admin"));
-            });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("admin"));
+            //});
             services.AddSwagger();
         }
 
@@ -61,7 +67,7 @@ namespace Order
                     PropertyNameHandling.CamelCase;
             });
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseMvc();
         }

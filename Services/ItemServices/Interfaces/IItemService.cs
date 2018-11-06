@@ -9,5 +9,6 @@ namespace Order.Services.ItemServices.Interfaces
     {
         void CreateItem(Item item);
         List<Item> GetAll();
+        Item GetItem(Guid itemID);
     }
 }

@@ -6,17 +6,15 @@ namespace Order.Domain.Items
 {
     public class Item
     {
-        public Guid SystemID { get; }
-        public int ObjectID { get; private set; }
+        public Guid ID { get; }
         public string Name { get; private set; }
         public string Description { get; private set; }
         public decimal Price { get; private set; }
         public int Amount { get; set; }
 
-        public Item(int id, string name, string description, decimal price, int amount)
+        public Item(string name, string description, decimal price, int amount)
         {
-            SystemID = new Guid();
-            ObjectID = id;
+            ID = Guid.NewGuid();
             Name = name;
             Description = description;
             Price = price;

@@ -7,7 +7,7 @@ using Order.Services.ItemServices.Interfaces;
 
 namespace Order.API.Controllers.Items
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ItemsController : ControllerBase
@@ -21,16 +21,16 @@ namespace Order.API.Controllers.Items
             _itemMapper = itemMapper;
         }
 
-        [Authorize(Policy = "RequireAdministratorRole")]
+        //[Authorize(Policy = "RequireAdministratorRole")]
         [HttpGet]
-        public ActionResult<List<ItemDTO>> GetAll()
+        public ActionResult<List<ItemResponseDTO>> GetAll()
         {
             return Ok(_itemMapper.ItemListToItemDTOList(_itemService.GetAll()));
         }
 
-        [Authorize(Policy = "RequireAdministratorRole")]
+        //[Authorize(Policy = "RequireAdministratorRole")]
         [HttpPost]
-        public ActionResult<Item> CreateItem([FromBody]ItemDTO itemDTO)
+        public ActionResult<Item> CreateItem([FromBody]ItemRequestDTO itemDTO)
         {
             _itemService.CreateItem(_itemMapper.ItemDTOToItem(itemDTO));
 

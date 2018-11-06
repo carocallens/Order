@@ -7,6 +7,6 @@ namespace Order.Databases.Orders
 {
     public static class DBOrders
     {
-        public static List<OrderItem> Orders = new List<OrderItem>();
+        public static List<OrderObject> Orders = new List<OrderObject>();
     }
 }

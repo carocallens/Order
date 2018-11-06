@@ -10,19 +10,20 @@ namespace Order.API.Controllers.Items
 {
     public class ItemMapper : IItemMapper
     {
-        public Item ItemDTOToItem(ItemDTO itemDTO)
+        public Item ItemDTOToItem(ItemRequestDTO itemDTO)
         {
             return new Item(itemDTO.Name, itemDTO.Description, itemDTO.Price, itemDTO.Amount);
         }
 
-        public List<ItemDTO> ItemListToItemDTOList(List<Item> items)
+        public List<ItemResponseDTO> ItemListToItemDTOList(List<Item> items)
         {
-            List<ItemDTO> itemDTOs = new List<ItemDTO>();
+            List<ItemResponseDTO> itemDTOs = new List<ItemResponseDTO>();
 
             foreach(var item in items)
             {
-                itemDTOs.Add(new ItemDTO
+                itemDTOs.Add(new ItemResponseDTO
                 {
+                    ID = item.ID,
                     Name = item.Name,
                     Description = item.Description,
                     Price = item.Price,

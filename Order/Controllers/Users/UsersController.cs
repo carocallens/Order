@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Order.API.Controllers.Users
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -22,14 +22,14 @@ namespace Order.API.Controllers.Users
             _userMapper = userMapper;
         }
 
-        [Authorize(Policy = "RequireAdministratorRole   ")]
+        //[Authorize(Policy = "RequireAdministratorRole")]
         [HttpGet]
         public ActionResult<List<UserDTO>> GetAll()
         {
             return Ok(_userMapper.ListUsersToListUsersDTO(_userService.GetAll()));
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost]
         public ActionResult<User> CreateUser([FromBody]UserDTO userDTO)
         {

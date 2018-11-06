@@ -14,9 +14,10 @@ namespace Order.Services.Tests.ItemServices
         public ItemServicesTests()
         {
             DBItems.Items.Clear();
-
-            DBItems.Items.Add(new Item("Kaas", "Lekker", 5, 2));
-            DBItems.Items.Add(new Item("Hesp", "Ok", 4, 5));
+            var itemKaas = new Item("Kaas", "Lekker", 5, 2);
+            DBItems.Items.Add(itemKaas.ID, itemKaas);
+            var itemHesp = new Item("Hesp", "Ok", 4, 5);
+            DBItems.Items.Add(itemHesp.ID, itemHesp);
 
             itemService = new ItemService();
         }
@@ -30,18 +31,5 @@ namespace Order.Services.Tests.ItemServices
 
             Assert.Equal(3, DBItems.Items.Count);
         }
-
-        [Fact]
-        public void GivenItemDatabaseWithTwoItems_WhenCreateExistingItem_ThenAddAmountToExistingItem()
-        {
-            var item = new Item("Kaas", "Lekker", 5, 2);
-
-            itemService.CreateItem(item);
-
-            Assert.Equal(2, DBItems.Items.Count);
-            Assert.Equal(4, DBItems.Items.FirstOrDefault(dbItem => dbItem.Name == "Kaas").Amount);
-        }
-
-
     }
 }

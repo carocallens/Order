@@ -7,6 +7,7 @@ namespace Order.Domain.Users
 {
     public class UserBuilder
     {
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -54,6 +55,12 @@ namespace Order.Domain.Users
             return this;
         }
         
+        public UserBuilder WithRole(Role userRole = Role.customer)
+        {
+            UserRole = userRole;
+            return this;
+        }
+
         public UserBuilder WithPhoneNumber(string phoneNumber)
         {
             PhoneNumber = phoneNumber;

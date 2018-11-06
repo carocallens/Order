@@ -17,10 +17,7 @@ namespace Order.API.Controllers.Users
                 .WithEmail(userDTO.Email)
                 .WithPassword(userDTO.Password)
                 .WithRole()
-                .WithStreet(userDTO.Street)
-                .WithStreetNumber(userDTO.StreetNumber)
-                .WithPostalCode(userDTO.PostalCode)
-                .WithCity(userDTO.City)
+                .WithAddress(new Address(userDTO.Street, userDTO.StreetNumber, userDTO.PostalCode, userDTO.City))
                 .WithPhoneNumber(userDTO.PhoneNumber)
                 .Build();
         }
@@ -32,15 +29,16 @@ namespace Order.API.Controllers.Users
             {
                 userDTOs.Add(new UserDTO
                 {
+                    ID = user.ID,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Email = user.Email,
                     Password = user.Password,
                     Role = user.UserRole.ToString(),
-                    Street = user.Street,
-                    StreetNumber = user.StreetNumber,
-                    PostalCode = user.PostalCode,
-                    City = user.City,
+                    Street = user.Address.Street,
+                    StreetNumber = user.Address.StreetNumber,
+                    PostalCode = user.Address.PostalCode,
+                    City = user.Address.City,
                     PhoneNumber = user.PhoneNumber
                 });
             }

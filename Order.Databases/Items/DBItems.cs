@@ -7,6 +7,6 @@ namespace Order.Databases.Items
 {
     public static class DBItems
     {
-        public static List<Item> Items = new List<Item>();
+        public static Dictionary<Guid, Item> Items = new Dictionary<Guid, Item>();
     }
 }

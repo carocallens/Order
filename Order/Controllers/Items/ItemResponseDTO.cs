@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Order.API.Controllers.Items
 {
-    public class ItemDTO
+    public class ItemResponseDTO
     {
+        public Guid ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

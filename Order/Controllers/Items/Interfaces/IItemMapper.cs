@@ -9,7 +9,7 @@ namespace Order.API.Controllers.Items.Interfaces
 {
     public interface IItemMapper
     {
-        List<ItemDTO> ItemListToItemDTOList(List<Item> items);
-        Item ItemDTOToItem(ItemDTO itemDTO);
+        List<ItemResponseDTO> ItemListToItemDTOList(List<Item> items);
+        Item ItemDTOToItem(ItemRequestDTO itemDTO);
     }
 }

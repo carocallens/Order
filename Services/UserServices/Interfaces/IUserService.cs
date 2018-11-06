@@ -11,5 +11,6 @@ namespace Order.Services.UserServices.Interfaces
         void CreateUser(User user);
         List<User> GetAll();
         Task<User> Authenticate(string username, string password);
+        User GetCustomer(Guid customerID);
     }
 }
