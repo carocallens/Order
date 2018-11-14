@@ -1,12 +1,9 @@
 ﻿using Order.Databases.Orders;
 using Order.Domain.Orders;
-using Order.Services.ItemServices;
 using Order.Services.ItemServices.Interfaces;
 using Order.Services.OrderServices.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Order.Services.OrderServices
 {
@@ -27,9 +24,20 @@ namespace Order.Services.OrderServices
         public decimal Order(OrderObject orderObject)
         {
             DetermineShippingDateForItemGroups(orderObject);
+
             DBOrders.Orders.Add(orderObject);
 
+            ReduceAmountInItemDatabase(orderObject);
+
             return CalculatePriceOrder(orderObject);
+        }
+
+        private void ReduceAmountInItemDatabase(OrderObject orderObject)
+        {
+            foreach (var itemgroup in orderObject.ItemGroups)
+            {
+                itemService.GetItem(itemgroup.ItemID).ReduceAmount(itemgroup.OrderedAmount);
+            }
         }
 
         private void DetermineShippingDateForItemGroups(OrderObject orderObject)

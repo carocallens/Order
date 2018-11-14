@@ -1,4 +1,5 @@
 ﻿using Order.Domain.Items;
+using Order.Domain.Orders;
 using Order.Services.ItemServices;
 using Order.Services.ItemServices.Interfaces;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Order.API.Controllers.ItemGroups
+namespace Order.API.Controllers.Orders.ItemGroups
 {
     public class ItemGroupMapper
     {

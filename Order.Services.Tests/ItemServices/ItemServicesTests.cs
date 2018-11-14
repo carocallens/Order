@@ -15,9 +15,9 @@ namespace Order.Services.Tests.ItemServices
         {
             DBItems.Items.Clear();
             var itemKaas = new Item("Kaas", "Lekker", 5, 2);
-            DBItems.Items.Add(itemKaas.ID, itemKaas);
+            DBItems.Items.Add(itemKaas);
             var itemHesp = new Item("Hesp", "Ok", 4, 5);
-            DBItems.Items.Add(itemHesp.ID, itemHesp);
+            DBItems.Items.Add(itemHesp);
 
             itemService = new ItemService();
         }

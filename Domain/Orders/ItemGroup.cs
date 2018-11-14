@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Order.Domain.Items
+namespace Order.Domain.Orders
 {
     public class ItemGroup
     {
@@ -9,11 +9,11 @@ namespace Order.Domain.Items
         public decimal Price { get; private set; }
         public DateTime ShippingDate { get; private set; }
 
-        public ItemGroup(Guid itemID, int orderedAmount, decimal price)
+        public ItemGroup(Guid itemID, int orderedAmount, decimal totalPriceItemGroup)
         {
             ItemID = itemID;
             OrderedAmount = orderedAmount;
-            Price = price;
+            Price = totalPriceItemGroup;
         }
 
         public void DetermineShippingDate(int stockAmount)

@@ -29,7 +29,7 @@ namespace Order.API.Controllers.Users
             {
                 userDTOs.Add(new UserDTO
                 {
-                    ID = user.ID,
+                    ID = user.ID.ToString(),
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     Email = user.Email,

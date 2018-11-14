@@ -5,8 +5,12 @@ using System.Text;
 
 namespace Order.Databases.Items
 {
-    public static class DBItems
+    public class DBItems
     {
-        public static Dictionary<Guid, Item> Items = new Dictionary<Guid, Item>();
+        public static List<Item> Items = new List<Item>()
+        {
+            new Item("iphone", "telefoon", 1000, 30),
+            new Item("samsung", "andere telefoon", 300, 20)
+        };
     }
 }

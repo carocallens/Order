@@ -1,4 +1,4 @@
-﻿using Order.API.Controllers.ItemGroups;
+﻿using Order.API.Controllers.Orders.ItemGroups;
 using Order.API.Controllers.Items;
 using Order.API.Controllers.Orders.Interfaces;
 using Order.Domain.Items;
@@ -20,7 +20,7 @@ namespace Order.API.Controllers.Orders
 
         public OrderObject OrderRequestDTOtoOrder(OrderRequestDTO orderDTO)
         {
-            User customer = userService.GetCustomer(orderDTO.CustomerID);
+            User customer = userService.GetCustomer(new Guid(orderDTO.CustomerID));
 
             List<ItemGroup> itemGroups = new List<ItemGroup>();
             foreach(var itemgroup in orderDTO.OrderedItemGroups)

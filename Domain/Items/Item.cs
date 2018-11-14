@@ -20,5 +20,30 @@ namespace Order.Domain.Items
             Price = price;
             Amount = amount;
         }
+
+        public void ReduceAmount(int amount)
+        {
+            if(amount < 0)
+            {
+                throw new Exception("The amount can't be a negative number");
+            }
+
+            if(Amount-amount < 0)
+            {
+                Amount = 0;
+            }
+            
+            Amount -= amount;
+        }
+
+        public void IncreaseAmount(int amount)
+        {
+            if (amount < 0)
+            {
+                throw new Exception("The amount can't be a negative number");
+            }
+
+            Amount += amount;
+        }
     }
 }

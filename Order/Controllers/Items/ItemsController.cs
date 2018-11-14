@@ -30,7 +30,7 @@ namespace Order.API.Controllers.Items
 
         //[Authorize(Policy = "RequireAdministratorRole")]
         [HttpPost]
-        public ActionResult<Item> CreateItem([FromBody]ItemRequestDTO itemDTO)
+        public ActionResult CreateItem([FromBody]ItemRequestDTO itemDTO)
         {
             _itemService.CreateItem(_itemMapper.ItemDTOToItem(itemDTO));
 

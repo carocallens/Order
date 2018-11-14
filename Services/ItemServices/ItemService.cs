@@ -12,17 +12,17 @@ namespace Order.Services.ItemServices
     {
         public void CreateItem(Item item)
         {
-            DBItems.Items.Add(item.ID, item);
+            DBItems.Items.Add(item);
         }
 
         public List<Item> GetAll()
         {
-            return DBItems.Items.Values.ToList();
+            return DBItems.Items;
         }
 
         public Item GetItem(Guid itemID)
         {
-            return DBItems.Items.FirstOrDefault(item => item.Key == itemID).Value;
+            return DBItems.Items.FirstOrDefault(item => item.ID == itemID);
         }
     }
 }

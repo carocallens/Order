@@ -23,7 +23,7 @@ namespace Order.API.Controllers.Items
             {
                 itemDTOs.Add(new ItemResponseDTO
                 {
-                    ID = item.ID,
+                    ID = item.ID.ToString(),
                     Name = item.Name,
                     Description = item.Description,
                     Price = item.Price,
